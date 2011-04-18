@@ -14,9 +14,9 @@
 #include <algorithm>
 
 //using namespace boost;
+
 //Char arrays for parsing
 const char NUMS[] = "0123456789";
-char OPS[] = "+-*/";
 
 /// Auxiliary struct for operators
 template<typename T>
@@ -102,7 +102,7 @@ void Tree<T>::Parse(std::string str)
    {
       /// Actually parsing only integers
       /// Doubles might be done by changing function atoi to appropriate
-      Number<int> numb = {atoi(str.substr(numPos, endPos - numPos).c_str())};
+      Number<T> numb = {atoi(str.substr(numPos, endPos - numPos).c_str())};
 
       /// Left and right nodes are empty for number node
       treePtr numLink;

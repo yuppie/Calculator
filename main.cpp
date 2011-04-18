@@ -50,6 +50,16 @@ int main (int argc, char* argv[])
       expr.AddOperator(power);
       expr.Parse("3*2^2");
       std::cout<<"3*2^2="<<expr.Eval()<<'\n';
+
+      Tree<double> exprDb;
+      Operator<double> dbplus('+', 1, std::plus<double>());
+      Operator<double> dbdivide ('/', 2, std::divides<double>());
+
+      exprDb.AddOperator(dbplus);
+      exprDb.AddOperator(dbdivide);
+
+      exprDb.Parse("3+2/3");
+      std::cout<<"3+2/3="<<exprDb.Eval()<<'\n';
 //      try
 //      {
 //         //Evaluating expression tree
